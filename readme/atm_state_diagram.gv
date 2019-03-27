@@ -1,0 +1,13 @@
+digraph finite_state_machine {
+	rankdir=LR;
+	size="8,5"
+	node [shape = doublecircle]; NoCard OutOfMoney; 
+	node [shape = circle];
+        NoCard -> OutOfMoney [ label = "verify cash in ATM " ];
+	NoCard -> HasCard [ label = "insert card" ];
+	HasCard -> NoCard [ label = "eject card" ];
+	HasCard -> HasPin [ label = "enter pin (correct)" ];
+	HasCard -> NoCard [ label = "enter pin (incorrect)" ];
+	HasPin -> NoCard [ label = "request cash" ];
+	HasPin -> NoCard [ label = "eject card" ];
+}
